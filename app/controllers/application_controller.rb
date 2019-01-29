@@ -14,25 +14,26 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/recipes/:id' do
-  @recipe = Article.find_by_id(params[:id])
+  @recipe = Recipe.find_by_id(params[:id])
   erb :show
 end
 
   get '/recipes/:id/edit' do  #load edit form
-    @recipe = Article.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     erb :edit
   end
  
   patch '/recipes/:id' do #edit action
-    @recipe = Article.find_by_id(params[:id])
-    @recipe.title = params[:title]
-    @recipe.content = params[:content]
+    @recipe = Recipe.find_by_id(params[:id])
+    @recipe.name = params[:name]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.cook_time = params[:cook_time]
     @recipe.save
-    redirect to "/recipes/#{@article.id}"
+    redirect to "/recipes/#{@recipe.id}"
   end
   
   delete '/recipes/:id/delete' do #delete action
-    @recipe = Article.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     redirect to '/recipes'
   end
