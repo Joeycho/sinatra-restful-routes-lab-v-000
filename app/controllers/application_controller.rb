@@ -12,5 +12,10 @@ class ApplicationController < Sinatra::Base
     @article = Article.create(:title => params[:title], :content => params[:content])
     redirect to "/articles/#{@article.id}"
   end
+  
+  get '/articles/:id' do
+  @article = Article.find_by_id(params[:id])
+  erb :show
+end
 
 end
