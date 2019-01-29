@@ -1,4 +1,4 @@
-include pry
+require 
 
 class ApplicationController < Sinatra::Base
   configure do
