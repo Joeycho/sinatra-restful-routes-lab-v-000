@@ -4,13 +4,13 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/articles/new' do
+  get '/recipes/new' do
     erb :new
   end
    
-  post '/articles' do
-    @article = Article.create(:title => params[:title], :content => params[:content])
-    redirect to "/articles/#{@article.id}"
+  post '/recipes' do
+    @recipe = Recipe.create(:name => params[:name], :ingredient => params[:ingredient], :cook_time => params[:cook_time])
+    redirect to "/recipes/#{@recipe.id}"
   end
   
   get '/articles/:id' do
