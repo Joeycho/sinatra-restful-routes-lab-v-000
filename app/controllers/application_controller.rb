@@ -4,6 +4,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  # code actions here!
+  get '/new' do
+    
+  end
+  
+  
 
 end
