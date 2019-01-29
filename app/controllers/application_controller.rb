@@ -3,6 +3,12 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
+  
+  get '/recipes' do
+    Recipe.all each do |recipe|
+      erb :show
+    end
+  end
 
   get '/recipes/new' do
     erb :new
