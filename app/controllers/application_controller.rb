@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 
 class ApplicationController < Sinatra::Base
   configure do
